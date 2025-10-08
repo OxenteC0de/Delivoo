@@ -1,9 +1,10 @@
 import { IsEmail ,IsNotEmpty, MinLength } from 'class-validator';
 import {Column,Entity,ManyToOne,OneToMany,PrimaryGeneratedColumn,} from 'typeorm';
-
+import { Produto } from '../../produto/entities/produto.entity';
 
 @Entity({name: "tb_usuarios"})
 export class Usuario {
+    [x: string]: any;
 
     @PrimaryGeneratedColumn() 
     id: number
@@ -25,8 +26,6 @@ export class Usuario {
     @Column({length: 5000 }) 
     foto: string
 
-
-  // descomentar quando criar a entidade produto
- // @OneToMany(() => Produto, (produto) => produto.usuario)
- // produtos: Produto[];
+  @OneToMany(() => Produto, (produto) => produto.usuario)
+  produtos: Produto[];
 }
