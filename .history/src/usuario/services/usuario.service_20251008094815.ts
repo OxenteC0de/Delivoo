@@ -2,7 +2,7 @@ import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Usuario } from '../entities/usuario.entity';
-//descomentar todos os comentarios quando o arquivo bcrypt estiver pronto
+//descomentar essa parte quando bcrypt estiver pronto
 //import { Bcrypt } from '../../auth/bcrypt/bcrypt';
 
 @Injectable()
