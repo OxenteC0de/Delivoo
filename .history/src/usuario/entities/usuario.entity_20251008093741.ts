@@ -1,4 +1,4 @@
-import { IsEmail ,IsNotEmpty, MinLength } from 'class-validator';
+import { Is,IsNotEmpty } from 'class-validator';
 import {Column,Entity,ManyToOne,OneToMany,PrimaryGeneratedColumn,} from 'typeorm';
 
 
