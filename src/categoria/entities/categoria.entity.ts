@@ -1,6 +1,6 @@
 import { IsNotEmpty } from "class-validator"
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm"
-//import { Produto } from "../../produto/entities/produto.entity"
+import { Produto } from "../../produto/entities/produto.entity"
 
 @Entity({name: 'tb_categoria'})
 export class Categoria {
@@ -13,6 +13,6 @@ export class Categoria {
   descricao: string
 
 //Relacionamento
-  /*@OneToMany(() => Produto, (produto) => produto.categoria)
-  produto: Produto[]*/
+  @OneToMany(() => Produto, (produto) => produto.categoria)
+  produto: Produto[]
 }
