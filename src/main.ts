@@ -12,8 +12,9 @@ async function bootstrap() {
     .setDescription('Documentação da API do projeto Delivoo (Delivery System)')
     .setContact(
       'Generation Brasil',
-      'http://www.generationbrasil.online',
-      'oxentecode@gmail.com',
+      'Equipe Oxente Code',
+      'www.oxentecode.com.br',
+      'ti@delivoo.com.br',
     )
     .setVersion('1.0')
     .addBearerAuth() // ativa o botão "Authorize" para JWT
