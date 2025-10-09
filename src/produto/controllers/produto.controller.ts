@@ -41,6 +41,12 @@ export class ProdutoController {
     return this.produtoService.findAll();
   }
 
+  @Get('/recomendacoes')
+  @HttpCode(HttpStatus.OK)
+  recomendarProdutosSaudaveis(): Promise<Produto[]> {
+    return this.produtoService.recomendarProdutosSaudaveis();
+  }
+
   @ApiOperation({ summary: 'Listar produto por ID' })
   @ApiResponse({
     status: 200,
@@ -125,9 +131,4 @@ export class ProdutoController {
     description: 'Produtos saudáveis retornados',
     type: [Produto],
   })
-  @Get('/recomendacoes')
-  @HttpCode(HttpStatus.OK)
-  recomendarProdutosSaudaveis(): Promise<Produto[]> {
-    return this.produtoService.recomendarProdutosSaudaveis();
-  }
 }
