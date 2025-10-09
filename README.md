@@ -1,5 +1,5 @@
 <p align="center">
-<img src="./src/assets/delivoo.png" alt="Logo Delivoo" width="300"/>
+<img src="./src/assets/delivoo.png" alt="Logo Delivoo" width="350"/>
 </p>
 
 ### 📅 Data
@@ -40,12 +40,6 @@ Com **tecnologia inteligente, logística eficiente e um cardápio variado**, nos
 
 ---
 
-📊 **Diagrama da Entidade**
-
-ANEXAR IMAGEM AQUI
-
----
-
 ⚙️ **Funcionalidade Adicional**
 
 Implementamos um recurso para recomendar produtos saudáveis aos usuários.
@@ -77,8 +71,6 @@ marcaNaoSaudavel(@Param('id') id: number): Promise<Produto> {
   return this.produtoService.marcarNaoSaudavel(id);
 }
 ```
-
----
 
 **Descrição dos métodos**
 
