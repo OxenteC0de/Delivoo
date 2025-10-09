@@ -23,6 +23,6 @@ import { AppService } from './app.service';
     CategoriaModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [],
 })
 export class AppModule {}
