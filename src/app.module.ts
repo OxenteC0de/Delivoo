@@ -9,19 +9,20 @@ import { Usuario } from './usuario/entities/usuario.entity';
 import { ConfigModule } from '@nestjs/config';
 import { ProdService } from './data/services/prod.service';
 import { AppController } from './app.controller';
+import { AppService } from './app.service';
 
 @Module({
   imports: [
   ConfigModule.forRoot(),
   TypeOrmModule.forRootAsync({
-	useClass: ProdService,
-  imports: [ConfigModule],
+	  useClass: ProdService,
+    imports: [ConfigModule],
   }),
     AuthModule,
     ProdutoModule,
     CategoriaModule,
   ],
   controllers: [AppController],
-  providers: [],
+  providers: [AppService],
 })
 export class AppModule {}

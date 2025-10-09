@@ -14,8 +14,8 @@ import { AuthController } from './controllers/auth.controllers';
     forwardRef(() => UsuarioModule),
     PassportModule,
     JwtModule.register({
-      secret: jwtConstants.secret,
-      signOptions: { expiresIn: '1h' },
+    secret: jwtConstants.secret,
+    signOptions: { expiresIn: '1h' },
     }),
   ],
   controllers: [AuthController],
