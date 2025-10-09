@@ -22,6 +22,7 @@ import { ApiTags, ApiBearerAuth } from '@nestjs/swagger';
 export class UsuarioController {
   constructor(private readonly usuarioService: UsuarioService) {}
 
+  // ============ CONSULTAS (GET) ============
   @UseGuards(JwtAuthGuard)
   @Get('/all')
   @HttpCode(HttpStatus.OK)
@@ -36,12 +37,14 @@ export class UsuarioController {
     return this.usuarioService.findById(id);
   }
 
+  // ============ CRIAÇÃO (POST) ============
   @Post('/cadastrar')
   @HttpCode(HttpStatus.CREATED)
   async create(@Body() usuario: Usuario): Promise<Usuario> {
     return this.usuarioService.create(usuario);
   }
 
+  // ============ ATUALIZAÇÃO (PUT/PATCH) ============
   @UseGuards(JwtAuthGuard)
   @Put('/atualizar')
   @HttpCode(HttpStatus.OK)
@@ -49,6 +52,7 @@ export class UsuarioController {
     return this.usuarioService.update(usuario);
   }
 
+  // ============ EXCLUSÃO (DELETE) ============
   @UseGuards(JwtAuthGuard)
   @Delete('/:id')
   @HttpCode(HttpStatus.NO_CONTENT)
