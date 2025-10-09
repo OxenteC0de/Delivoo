@@ -155,7 +155,7 @@ David Barbosa – Desenvolvedor, documentação
 
 Dilvani – Desenvolvedora, identidade visual
 
-Janaína Bezerra – Desenvolvedora, Insomnia
+Janaína Bezerra – Desenvolvedora
 
 Karine Santos – Desenvolvedora
 
