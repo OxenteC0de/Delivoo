@@ -29,6 +29,8 @@ import {
 export class ProdutoController {
   constructor(private readonly produtoService: ProdutoService) {}
 
+  // ============ CONSULTAS (GET) ============
+
   @ApiOperation({ summary: 'Listar todos os produtos' })
   @ApiResponse({
     status: 200,
@@ -41,22 +43,16 @@ export class ProdutoController {
     return this.produtoService.findAll();
   }
 
+  @ApiOperation({ summary: 'Listar produtos saudáveis recomendados' })
+  @ApiResponse({
+    status: 200,
+    description: 'Produtos saudáveis retornados',
+    type: [Produto],
+  })
   @Get('/recomendacoes')
   @HttpCode(HttpStatus.OK)
   recomendarProdutosSaudaveis(): Promise<Produto[]> {
     return this.produtoService.recomendarProdutosSaudaveis();
-  }
-
-  @ApiOperation({ summary: 'Listar produto por ID' })
-  @ApiResponse({
-    status: 200,
-    description: 'Produto encontrado',
-    type: Produto,
-  })
-  @Get('/:id')
-  @HttpCode(HttpStatus.OK)
-  findById(@Param('id', ParseIntPipe) id: number): Promise<Produto> {
-    return this.produtoService.findById(id);
   }
 
   @ApiOperation({ summary: 'Buscar produtos por nome' })
@@ -71,6 +67,20 @@ export class ProdutoController {
     return this.produtoService.findAllByNome(nome);
   }
 
+  @ApiOperation({ summary: 'Listar produto por ID' })
+  @ApiResponse({
+    status: 200,
+    description: 'Produto encontrado',
+    type: Produto,
+  })
+  @Get('/:id')
+  @HttpCode(HttpStatus.OK)
+  findById(@Param('id', ParseIntPipe) id: number): Promise<Produto> {
+    return this.produtoService.findById(id);
+  }
+
+  // ============ CRIAÇÃO (POST) ============
+
   @ApiOperation({ summary: 'Criar um novo produto' })
   @ApiResponse({
     status: 201,
@@ -82,6 +92,8 @@ export class ProdutoController {
   async create(@Body() produto: Produto): Promise<Produto> {
     return this.produtoService.create(produto);
   }
+
+  // ============ ATUALIZAÇÃO (PUT/PATCH) ============
 
   @ApiOperation({ summary: 'Atualizar um produto existente' })
   @ApiResponse({
@@ -95,22 +107,14 @@ export class ProdutoController {
     return this.produtoService.update(produto);
   }
 
-  @ApiOperation({ summary: 'Deletar um produto por ID' })
-  @ApiResponse({ status: 204, description: 'Produto deletado com sucesso' })
-  @Delete('/:id')
-  @HttpCode(HttpStatus.NO_CONTENT)
-  async delete(@Param('id', ParseIntPipe) id: number) {
-    return this.produtoService.delete(id);
-  }
-
   @ApiOperation({ summary: 'Marcar produto como saudável' })
   @ApiResponse({
     status: 200,
     description: 'Produto marcado como saudável',
     type: Produto,
   })
-  @Patch(':id/saudavel')
-  marcaSaudavel(@Param('id') id: number): Promise<Produto> {
+  @Patch('/:id/saudavel')
+  marcaSaudavel(@Param('id', ParseIntPipe) id: number): Promise<Produto> {
     return this.produtoService.marcarSaudavel(id);
   }
 
@@ -120,15 +124,18 @@ export class ProdutoController {
     description: 'Produto marcado como não saudável',
     type: Produto,
   })
-  @Patch(':id/nao-saudavel')
-  marcaNaoSaudavel(@Param('id') id: number): Promise<Produto> {
+  @Patch('/:id/nao-saudavel')
+  marcaNaoSaudavel(@Param('id', ParseIntPipe) id: number): Promise<Produto> {
     return this.produtoService.marcarNaoSaudavel(id);
   }
 
-  @ApiOperation({ summary: 'Listar produtos saudáveis recomendados' })
-  @ApiResponse({
-    status: 200,
-    description: 'Produtos saudáveis retornados',
-    type: [Produto],
-  })
+  // ============ EXCLUSÃO (DELETE) ============
+
+  @ApiOperation({ summary: 'Deletar um produto por ID' })
+  @ApiResponse({ status: 204, description: 'Produto deletado com sucesso' })
+  @Delete('/:id')
+  @HttpCode(HttpStatus.NO_CONTENT)
+  async delete(@Param('id', ParseIntPipe) id: number) {
+    return this.produtoService.delete(id);
+  }
 }
