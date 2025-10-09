@@ -11,13 +11,12 @@ async function bootstrap() {
     .setTitle('Delivoo API')
     .setDescription('Documentação da API do projeto Delivoo (Delivery System)')
     .setContact(
-      'Generation Brasil',
-      'Equipe Oxente Code',
-      'www.oxentecode.com.br',
-      'ti@delivoo.com.br',
+      'Equipe Oxente Code',                    
+      'https://www.oxentecode.com.br',        
+      'ti@delivoo.com.br'                     
     )
     .setVersion('1.0')
-    .addBearerAuth() // ativa o botão "Authorize" para JWT
+    .addBearerAuth() 
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
