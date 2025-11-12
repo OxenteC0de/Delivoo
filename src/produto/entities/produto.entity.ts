@@ -27,6 +27,14 @@ export class Produto {
   @Column({ length: 1000, nullable: false })
   descricao: string;
 
+  @ApiProperty({
+  description: 'URL da foto do produto',
+  example: 'https://exemplo.com/foto.jpg',
+  required: false,
+  })
+  @Column({ length: 500, nullable: true })
+  foto: string;
+
   @ApiProperty({ description: 'Quantidade disponível em estoque', example: 50 })
   @IsNotEmpty()
   @Column({ nullable: false })
