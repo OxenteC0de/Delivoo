@@ -19,7 +19,7 @@ export class Usuario {
 
   @ApiProperty({
     description: 'E-mail do usuário (login)',
-    example: 'william@email.com',
+    example: 'email@email.com',
   })
   @IsEmail()
   @IsNotEmpty()
