@@ -41,6 +41,15 @@ export class Usuario {
   foto: string;
 
   @ApiProperty({
+    description: 'Tipo de usuário (cliente ou admin)',
+    example: 'cliente',
+    enum: ['cliente', 'admin'],
+    default: 'cliente',
+  })
+  @Column({ default: 'cliente' })
+  tipo: string;
+
+  @ApiProperty({
     type: () => [Produto],
     description: 'Lista de produtos cadastrados pelo usuário',
     required: false,
